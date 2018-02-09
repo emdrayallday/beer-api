@@ -5,11 +5,11 @@ const app = express()
 const HTTPError = require('node-http-error')
 const port = process.env.PORT || 4000
 
-const { getBeer } = require('./dal')
+const { getBeer, getBrewery } = require('./dal')
 
-app.get('/beer/:id', (req, res) =>{
+app.get('/beers/:id', (req, res) => {
   // res.send('Howdy!')
-  getBeer(req.params.id, function(err, beer) {
+  getBeer(req.params.id, function(err, beer, next) {
     if (err) {
       next(new HTTPError(err.status, err.message, err))
       return
@@ -18,23 +18,17 @@ app.get('/beer/:id', (req, res) =>{
   })
 })
 
-app.get('/beer/:id', (req, res) => {
-
-  res.send('getting beer')
+app.get('/breweries/:id', (req, res) => {
+  getBrewery(req.params.id, (err, brewery, next) => {
+    if (err) {
+      next(new HTTPError(err.status, err.message, err))
+      return
+    }
+    res.send(brewery)
+  })
 })
 
-app.get('/breweries/:id', (req, res) =>{
-
-  res.send(`you asked for ${req.params.id}`)
-})
-
-
-
-
-
-
-
-app.use(function(err, req, res, nex){
+app.use(function(err, req, res, next) {
   res.status(err.status || 500)
   res.send(err.message)
 })
