@@ -38,14 +38,9 @@ A successfully created beer will result in a `201 - Created` response and the be
 
 ```
 {
-  '_id': "beer_allagash-white"
-  '_rev': "1-aa1234j5klkk32l"
-  'name': "Allagash White",
-  'style': 'Wheat',
-  'abvPCT': 5.1,
-  'brewId: 'brewery_allagash-brewing-company',
-  'stars': 3,
-  'type': 'beer'
+'ok': true,
+'_id': 'beer_allagash-white'
+'_rev': "1-aa1234j5klkk32l"
 }
 ```
 
@@ -154,13 +149,9 @@ A successfully created brewery will result in a `201 - Created` response and the
 
 ```
 {
-  '_id': "brewery_allagash-brewing-company",
-  '_rev': "1-2341234dsfas4gadf3",
-  'name': "Allagash Brewing Company",
-  'opened': 1995,
-  'city': "Portland",
-  'state': "Maine",
-  'type': 'brewery'
+  "ok": true,
+  "id": "brewery_allagash-brewing-company",
+  "rev": "1-aa1234j5klkk32l"
 }
 ```
 
