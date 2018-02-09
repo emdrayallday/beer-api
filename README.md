@@ -25,12 +25,12 @@ All of the fields are required which include `name`,`style`,`abvPCT`,`brewId`,`s
 POST /beer
 
 {
-  'name': "Allagash White",
-  'style': 'Wheat',
-  'abvPCT': 5.1,
-  'brewId: 'brewery_allagash-brewing-company',
-  'stars': 3,
-  'type': 'beer'
+  "name": "Allagash White",
+  "style": "Wheat",
+  "abvPCT": 5.1,
+  "brewId: "brewery_allagash-brewing-company",
+  "stars": 3,
+  "type": "beer"
 }
 ```
 
@@ -38,9 +38,9 @@ A successfully created beer will result in a `201 - Created` response and the be
 
 ```
 {
-'ok': true,
-'_id': 'beer_allagash-white'
-'_rev': "1-aa1234j5klkk32l"
+"ok": true,
+"_id": "beer_allagash-white"
+"_rev": "1-aa1234j5klkk32l"
 }
 ```
 
@@ -59,14 +59,14 @@ Example:
 
 ```
 {
-  '_id': "beer_allagash-white"
-  '_rev': "1-aa1234j5klkk32l"
-  'name': "Allagash White",
-  'style': 'Wheat',
-  'abvPCT': 5.1,
-  'brewId: 'brewery_allagash-brewing-company',
-  'stars': 3,
-  'type': 'beer'
+  "_id": "beer_allagash-white"
+  "_rev": "1-aa1234j5klkk32l"
+  "name": "Allagash White",
+  "style": "Wheat",
+  "abvPCT": 5.1,
+  "brewId: "brewery_allagash-brewing-company",
+  "stars": 3,
+  "type": "beer"
 }
 ```
 
@@ -84,14 +84,14 @@ Example:
 PUT /beer/beer_allagash-White
 
 {
-  '_id': "beer_allagash-white"
-  '_rev': "1-aa1234j5klkk32l"
-  'name': "Allagash White",
-  'style': 'Wheat',
-  'abvPCT': 5.1,
-  'brewId: 'brewery_allagash-brewing-company',
-  'stars': 4,
-  'type': 'beer'
+  "_id": "beer_allagash-white"
+  "_rev": "1-aa1234j5klkk32l"
+  "name": "Allagash White",
+  "style": "Wheat",
+  "abvPCT": 5.1,
+  "brewId: "brewery_allagash-brewing-company",
+  "stars": 4,
+  "type": "beer"
 }
 ```
 
@@ -120,8 +120,8 @@ A successful delete will return with a `200 - OK` status and displayed in the re
 ```
 {
 "ok": true,
-'_id': "beer_allagash-white"
-'_rev': "1-aa1234j5klkk32l"
+"_id": "beer_allagash-white"
+"_rev": "1-aa1234j5klkk32l"
 }
 ```
 
@@ -137,11 +137,11 @@ All of the fields are required which include `name`,`style`,`abvPCT`,`brewId`,`s
 POST /breweries
 
 {
-  'name': "Allagash Brewing Company",
-  'opened': 1995,
-  'city': "Portland",
-  'state': "Maine",
-  'type': 'brewery'
+  "name": "Allagash Brewing Company",
+  "opened": 1995,
+  "city": "Portland",
+  "state": "Maine",
+  "type": "brewery"
 }
 ```
 
@@ -171,13 +171,13 @@ Example:
 
 ```
 {
-  '_id': "brewery_allagash-brewing-company",
-  '_rev': "1-2341234dsfas4gadf3",
-  'name': "Allagash Brewing Company",
-  'opened': 1995,
-  'city': "Portland",
-  'state': "Maine",
-  'type': 'brewery'
+  "_id": "brewery_allagash-brewing-company",
+  "_rev": "1-2341234dsfas4gadf3",
+  "name": "Allagash Brewing Company",
+  "opened": 1995,
+  "city": "Portland",
+  "state": "Maine",
+  "type": "brewery"
 }
 ```
 
@@ -194,17 +194,17 @@ Example:
 ```
 PUT /breweries/brewery_allagash-brewing-company
 {
-  '_id': "brewery_allagash-brewing-company",
-  '_rev': "1-2341234dsfas4gadf3",
-  'name': "Allagash Brewing Company",
-  'opened': 1995,
-  'city': "Portland",
-  'state': "Maine",
-  'type': 'brewery'
+  "_id": "brewery_allagash-brewing-company",
+  "_rev": "1-2341234dsfas4gadf3",
+  "name": "Allagash Brewing Company",
+  "opened": 1995,
+  "city": "Portland",
+  "state": "Maine",
+  "type": "brewery"
 }
 ```
 
-If successful there will be a response of `200 - OK` and the response body will look like this:
+If successful there will be a `200 - OK` response code and a response body which includes an `id`, `rev`, and `ok` properties. The response body will look like this:
 
 ```
 {
@@ -229,7 +229,7 @@ A successful delete will return with a `200 - OK` status and displayed in the re
 ```
 {
 "ok": true,
-'id': "brewery_allagash-brewing-company",
-'rev': "1-2341234dsfas4gadf3",
+"id": "brewery_allagash-brewing-company",
+"rev": "1-2341234dsfas4gadf3",
 }
 ```
