@@ -27,7 +27,7 @@ POST /beer
   'style': 'Wheat',
   'abvPCT': 5.1,
   'brewId: 'brewery_allagash-brewing-company',
-  'tasty': true
+  'stars': 3,
   'type': 'beer'
 }
 ```
@@ -42,8 +42,54 @@ A successfully created beer will result in a `201 - Created` response and the be
   'style': 'Wheat',
   'abvPCT': 5.1,
   'brewId: 'brewery_allagash-brewing-company',
-  'tasty': true,
+  'stars': 3,
   'type': 'beer'
+}
+```
+
+## Get a Beer
+
+Retrieves a beer via `GET` to the `/beer/:id` parameter endpoint, passing the beerId to the request parameter.
+Example:
+
+```
+GET/beer/beer_allagash-white
+```
+
+A successful GET will result in a `200 - OK` response and the beer doc will be returned in the response body.
+
+Example:
+
+```
+{
+  '_id': "beer_allagash-white"
+  '_rev': "1-aa1234j5klkk32l"
+  'name': "Allagash White",
+  'style': 'Wheat',
+  'abvPCT': 5.1,
+  'brewId: 'brewery_allagash-brewing-company',
+  'stars': 3,
+  'type': 'beer'
+}
+```
+
+#Delete a beer
+
+Delete a beer via `DELETE` to the `/beer/:id`.
+
+EXAMPLE:
+
+```
+DELETE /beer/beer_allagash-white
+```
+
+A successful delete will return with a `200 - OK` status and displayed in the response body will be:
+
+```
+{
+"ok": true,
+'_id': "beer_allagash-white"
+'_rev': "1-aa1234j5klkk32l"
 }
 ```
 
@@ -57,7 +103,8 @@ POST /breweries
 {
   'name': "Allagash Brewing Company",
   'opened': 1995,
-  'location': "Portland, Maine",
+  'city': "Portland",
+  'state': "Maine",
   'type': 'brewery'
 }
 ```
@@ -70,7 +117,54 @@ A successfully created brewery will result in a `201 - Created` response and the
   '_rev': "1-2341234dsfas4gadf3",
   'name': "Allagash Brewing Company",
   'opened': 1995,
-  'location': "Portland, Maine",
+  'city': "Portland",
+  'state': "Maine",
   'type': 'brewery'
+}
+```
+
+## Get a brewery
+
+Retrieves a brewery via `GET` to the `/breweries/:id` parameter endpoint, passing the breweryId to the request parameter.
+
+Example:
+
+```
+GET/breweries/brewery_allagash-brewing-company
+```
+
+A successful GET will result in a `200 - OK` response and the brewery doc will be returned in the response body.
+
+Example:
+
+```
+{
+  '_id': "brewery_allagash-brewing-company",
+  '_rev': "1-2341234dsfas4gadf3",
+  'name': "Allagash Brewing Company",
+  'opened': 1995,
+  'city': "Portland",
+  'state': "Maine",
+  'type': 'brewery'
+}
+```
+
+#Delete a brewery
+
+Delete a brewery via `DELETE` to the `/breweries/:id`.
+
+EXAMPLE:
+
+```
+DELETE /breweries/brewery_allagash-brewing-company
+```
+
+A successful delete will return with a `200 - OK` status and displayed in the response body will be:
+
+```
+{
+"ok": true,
+'id': "brewery_allagash-brewing-company",
+'rev': "1-2341234dsfas4gadf3",
 }
 ```
