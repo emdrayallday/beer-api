@@ -47,7 +47,7 @@ A successfully created beer will result in a `201 - Created` response and the be
 }
 ```
 
-## Create a brewery_allagash
+## Create a brewery
 
 Create a brewery via `POST` TO THE `/breweries` endpoint passing a brewery JSON object in the request body.
 
