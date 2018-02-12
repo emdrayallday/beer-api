@@ -17,5 +17,3 @@ db
   .catch(function(err) {
     console.log(err)
   })
-
-const allDocs = (options, cb) => db.allDocs(options, cb)

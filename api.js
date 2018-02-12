@@ -30,7 +30,7 @@ app.get('/breweries/:id', (req, res) => {
 
 app.get('/beers', (req, res) => {
   allDocs(
-    { include_docs: true, startkey: 'beer', endkey: 'brewery' },
+    { include_docs: true, startkey: 'beer', endkey: 'beer\ufff0' },
     (err, beers, next) => {
       if (err) {
         next(new HTTPError(err.status, err.message, err))
@@ -43,7 +43,7 @@ app.get('/beers', (req, res) => {
 
 app.get('/breweries', (req, res) => {
   allDocs(
-    { include_docs: true, startkey: 'brewery', endkey: 'brewery' },
+    { include_docs: true, startkey: 'brewery', endkey: 'brewery\ufff0' },
     (err, breweries, next) => {
       if (err) {
         next(new HTTPError(err.status, err.message, err))
