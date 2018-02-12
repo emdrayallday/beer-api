@@ -4,8 +4,8 @@ const express = require('express')
 const app = express()
 const HTTPError = require('node-http-error')
 const port = process.env.PORT || 4000
-
-const { getBeer, getBrewery } = require('./dal')
+const { map } = require('ramda')
+const { getBeer, getBrewery, allDocs } = require('./dal')
 
 app.get('/beers/:id', (req, res) => {
   // res.send('Howdy!')
@@ -26,6 +26,32 @@ app.get('/breweries/:id', (req, res) => {
     }
     res.send(brewery)
   })
+})
+
+app.get('/beers', (req, res) => {
+  allDocs(
+    { include_docs: true, startkey: 'beer', endkey: 'brewery' },
+    (err, beers, next) => {
+      if (err) {
+        next(new HTTPError(err.status, err.message, err))
+        return
+      }
+      res.send(map(row => row.doc, beers.rows))
+    }
+  )
+})
+
+app.get('/breweries', (req, res) => {
+  allDocs(
+    { include_docs: true, startkey: 'brewery', endkey: 'brewery' },
+    (err, breweries, next) => {
+      if (err) {
+        next(new HTTPError(err.status, err.message, err))
+        return
+      }
+      res.send(map(row => row.doc, breweries.rows))
+    }
+  )
 })
 
 app.use(function(err, req, res, next) {
