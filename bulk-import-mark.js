@@ -7,13 +7,26 @@ const db = new PouchDB(process.env.NEW_URL)
 
 db
   .bulkDocs([
-    { _id: 'watermelon', name: 'Watermelon', color: 'red' },
-    { _id: 'mandarin-orange', name: 'Mandarin Orange', color: 'orange' },
-    { _id: 'grape', name: 'Grape', color: 'purple' }
+    {
+      _id: 'strawberry-kiwi',
+      name: 'Strawberry Kiwi',
+      color: 'maroon'
+    },
+    {
+      _id: 'grape',
+      name: 'Grape',
+      color: 'purple'
+    },
+    {
+      _id: 'ice-glacier',
+      name: 'ICE GLACIER',
+      color: 'cyan'
+    },
+    {
+      _id: 'blue-rush',
+      name: 'BLUE RUSH',
+      color: 'royal blue'
+    }
   ])
-  .then(function(resp) {
-    console.log(resp)
-  })
-  .catch(function(err) {
-    console.log(err)
-  })
+  .then(result => console.log(result))
+  .catch(err => console.log(err))

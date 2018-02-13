@@ -7,5 +7,9 @@ const { pluck } = require('ramda')
 
 const getBeer = (id, cb) => db.get(id, cb)
 const getBrewery = (id, cb) => db.get(id, cb)
-const allDocs = (options, cb) => db.allDocs(options, cb)
+const allDocs = options =>
+  db.allDocs(options).then(result => pluck('doc', result.rows))
+
+// const allDocs = options =>
+//   db.allDocs(options).then(result => pluck('doc', result.rows))
 module.exports = { getBeer, getBrewery, allDocs }

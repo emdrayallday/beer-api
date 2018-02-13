@@ -29,29 +29,15 @@ app.get('/breweries/:id', (req, res) => {
 })
 
 app.get('/beers', (req, res) => {
-  allDocs(
-    { include_docs: true, startkey: 'beer', endkey: 'beer\ufff0' },
-    (err, beers, next) => {
-      if (err) {
-        next(new HTTPError(err.status, err.message, err))
-        return
-      }
-      res.send(map(row => row.doc, beers.rows))
-    }
-  )
+  allDocs({ include_docs: true, startkey: 'beer', endkey: 'beer\ufff0' })
+    .then(result => res.send(result))
+    .catch(err => next(new HTTPError(err.status, err.message, err)))
 })
 
 app.get('/breweries', (req, res) => {
-  allDocs(
-    { include_docs: true, startkey: 'brewery', endkey: 'brewery\ufff0' },
-    (err, breweries, next) => {
-      if (err) {
-        next(new HTTPError(err.status, err.message, err))
-        return
-      }
-      res.send(map(row => row.doc, breweries.rows))
-    }
-  )
+  allDocs({ include_docs: true, startkey: 'brewery', endkey: 'brewery\ufff0' })
+    .then(result => res.send(result))
+    .catch(err => next(new HTTPError(err.status, err.message, err)))
 })
 
 app.use(function(err, req, res, next) {
