@@ -3,7 +3,7 @@ const PouchDB = require('pouchdb-core')
 PouchDB.plugin(require('pouchdb-adapter-http'))
 PouchDB.plugin(require('pouchdb-find'))
 const slugIt = require('slugify')
-const db = new PouchDB(process.env.NEW_URL)
+const db = new PouchDB(process.env.CLOUD)
 
 db
   .bulkDocs([
